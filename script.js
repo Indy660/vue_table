@@ -9,7 +9,7 @@ new Vue({
             { id: 4, name: 'Sacha', login: 'gundi5', password:"BF236BF"},
             { id: 5, name: 'Дима', login: 'Indy660', password: '123' }
         ],
-        sortColumn: 'id',
+        sortColumn: '',
         lengthArray:null,
         nameUser: null,
         loginUser: null,
@@ -21,12 +21,25 @@ new Vue({
     computed:{
         userSortList: function(){
             const sortColumn = this.sortColumn;
-            let k = 1;
-            return this.userList.slice().sort((a, b)=> {
-                if (a[sortColumn] < b[sortColumn]) {
-                    return -1*k
-                } else {return k}
+            if (this.userList[Object.keys(this.userList)[0]][sortColumn] > this.userList[Object.keys(this.userList)[1]][sortColumn]) {
+                return this.userList.slice().sort((a, b)=> {
+                    if (a[sortColumn] < b[sortColumn]) {
+                        return -1
+                    } else {
+                        return 1
+                    }
             });
+            }
+            else {
+                return this.userList.slice().sort((a, b) => {
+                    if (a[sortColumn] < b[sortColumn]) {
+                        return 1
+                    } else {
+                        return -1
+                    }
+                });
+            }
+
         }
     },
     methods:{
@@ -50,17 +63,11 @@ new Vue({
             }
             return false
         },
-        sortSomething: function (thing, array, k) {
-            array.sort(function (a, b) {
-                if (a[thing] < b[thing]) {
-                    return -1*k
-                } else {return k}
-            })
-        },
-        sort: function () {
-            const thing = $(this).data('index');
-            let directionSort= Number(-1 || 1);
-            this.sortSomething(thing, this.userList, directionSort)
-        }
+
+        // sort: function () {
+        //     const thing = $(this).data('index');
+        //     let directionSort= Number(-1 || 1);
+        //     this.sortSomething(thing, this.userList, directionSort)
+        // }
     }
 })
