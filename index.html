@@ -22,10 +22,10 @@
 <table class="table table-bordered table-dark">
     <thead>
     <tr>
-        <th scope="col"><img src="public/img/sort.svg" width="25" height="25" class="float-right"  v-on:click="sortColumn='id'">ID</th>
-        <th scope="col"><img src="public/img/sort.svg" width="25" height="25" class="float-right"  v-on:click="sortColumn='name'">Имя</th>
-        <th scope="col"><img src="public/img/sort.svg" width="25" height="25" class="float-right"  v-on:click="sortColumn='login'">Логин</th>
-        <th scope="col"><img src="public/img/sort.svg" width="25" height="25" class="float-right"  v-on:click="sortColumn='password'">Пароль</th>
+        <th scope="col"><img src="public/img/sort.svg" width="25" height="25" class="float-right"  v-on:click="sortColumn='id'; sortDirection*=-1">ID</th>
+        <th scope="col"><img src="public/img/sort.svg" width="25" height="25" class="float-right"  v-on:click="sortColumn='name'; sortDirection*=-1">Имя</th>
+        <th scope="col"><img src="public/img/sort.svg" width="25" height="25" class="float-right"  v-on:click="sortColumn='login'; sortDirection*=-1">Логин</th>
+        <th scope="col"><img src="public/img/sort.svg" width="25" height="25" class="float-right"  v-on:click="sortColumn='password'; sortDirection*=-1">Пароль</th>
 
     </tr>
     </thead>

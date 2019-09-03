@@ -14,6 +14,7 @@ new Vue({
         nameUser: null,
         loginUser: null,
         passwordUser: null,
+        sortDirection:-1
     },
     created: function(){
         this.lengthArray = this.userList.length
@@ -21,14 +22,16 @@ new Vue({
     computed:{
         userSortList: function(){
             const sortColumn = this.sortColumn;
-            if (this.userList[Object.keys(this.userList)[0]][sortColumn] > this.userList[Object.keys(this.userList)[1]][sortColumn]) {
+            if (this.sortDirection===-1) {
                 return this.userList.slice().sort((a, b)=> {
                     if (a[sortColumn] < b[sortColumn]) {
                         return -1
                     } else {
                         return 1
                     }
+
             });
+
             }
             else {
                 return this.userList.slice().sort((a, b) => {
